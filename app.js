@@ -19,12 +19,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 //set up mongoose w/ mongo
-mongoose.connect('mongodb://45.55.207.169:27555/test'); 
+//mongoose.connect('mongodb://45.55.207.169:27555/test'); 
 
-function compile(str) {
-  return stylus(str)
-    .use(bootstrap());
-}
+
 
 
 
@@ -77,6 +74,12 @@ app.use(function(err, req, res, next) {
 app.get('/', function(req, res){
   res.render('index', {
     title: 'Home'
+  });
+});
+
+app.get('/about', function(req, res){
+  res.render('index', {
+    title: 'About'
   });
 });
 

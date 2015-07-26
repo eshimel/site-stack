@@ -1,19 +1,40 @@
+include mixins
+
 doctype
 html
   head
     title #{title} - Costa Cleaning | Boston
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js')
+    script(src='https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js')
   body
+    +nav("Project name", "dropdown_menu")
+      +nav_item( "/", "active" ) Home
+      +nav_item( "/about" ) About
+      +nav_item( "/" ) Contact
+      +nav_item_dropdown( "#" )( label="Dropdown")
+        +nav_item( "#" ) Action
+        +nav_item( "#" ) Another action
+        +nav_item( "#" ) Something else here
+        +nav_divider
+        +nav_header Nav header
+        +nav_item( "#" ) Separated link
+        +nav_item( "#" ) One more separated link
     header
       h1 Costa's Cleaning
     .container
       .jumbotron
         h1 Hello!
     .container
-      .main-content
-        block content
-      .sidebar
-        block sidebar
+      .row
+        .main-content.col-md-8
+          block content
+        .sidebar.col-md-4
+          block sidebar
     footer
       p Running on node with Express, Jade and Stylus
+
+
+    //link(href='')
