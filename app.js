@@ -1,4 +1,5 @@
 var express = require('express')
+  , bootstrap = ('bootstrap-styl')
   , stylus = require('stylus')
   , nib = require('nib')
 var path = require('path');
@@ -20,13 +21,12 @@ app.set('view engine', 'jade');
 //set up mongoose w/ mongo
 mongoose.connect('mongodb://45.55.207.169:27555/test'); 
 
-
-function compile(str, path) {
-  console.log("Compile")
+function compile(str) {
   return stylus(str)
-    .set('filename', path)
-    .use(nib())
+    .use(bootstrap());
 }
+
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -35,12 +35,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-//call compiles function
-app.use(
-  stylus.middleware({ 
-    src: path.join(__dirname + 'public'), 
-    compile: compile
-  }))
 
 // use the static page stuffs
 app.use(express.static(path.join(__dirname, 'public')));

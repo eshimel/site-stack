@@ -1,28 +1,29 @@
-module.exports = function(grunt) {
-
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json')
-  },
-  stylus: {compile: {
-    options: {
-      paths: ['public/stylesheets']
-    },
-    files: {
-      'public/stylesheets/style.css', 'public/stylesheets/style.styl'
-    }
-
-  }},
-  "watch": {
-    files: ['public/stylesheets/*.styl'],
-    tasks: ['stylus:all']
-
-  }
-  
-  grunt.loadNpmTasks('grunt-contrib-stylus');
-  //grunt.registerTask('test', ['jshint', 'qunit']);
-
-  //grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
-
-};
-
-
+    module.exports = function(grunt) {
+      grunt.initConfig({
+        stylus: {
+          compile: {
+            options: {
+              compress: false
+            },
+            files: {
+              'public/stylesheets/style.css': ['public/stylesheets/style.styl']
+            }
+          }
+        },
+        watch: {
+          // Watch stylus files in "styl" directory
+          stylus: {
+            files: ['public/stylesheets/*.styl'],
+            tasks: ['stylus']
+          }
+        }
+      });
+    
+      // Load the plugin that provides the "watch" & "stylus" tasks.
+      //grunt.LoadNpmTasks('bootstrap-styl');
+      grunt.loadNpmTasks('grunt-contrib-watch');
+      grunt.loadNpmTasks('grunt-contrib-stylus');
+    
+      // Default task(s).
+      grunt.registerTask('default', ['stylus','watch']);
+    };
