@@ -1,17 +1,24 @@
 include mixins
 
+
+
 doctype
 html
   head
     title #{title} - Costa Cleaning | Boston
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
+    
+    link(href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', rel='stylesheet')
+
+
+    // js imports
     script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
     script(src='https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js')
+  
+    link(rel='stylesheet', href='stylesheets/style.css')
   body
-    +nav("Project name", "dropdown_menu")
-      +nav_item( "/", "active" ) Home
+    +nav("Costa's Cleaning", "dropdown_menu")
+      +nav_item( "/") Home
       +nav_item( "/about" ) About
       +nav_item( "/" ) Contact
       +nav_item_dropdown( "#" )( label="Dropdown")
@@ -23,7 +30,11 @@ html
         +nav_item( "#" ) Separated link
         +nav_item( "#" ) One more separated link
     header
-      h1 Costa's Cleaning
+      h1 Hello
+      h2 We're Kelly & Cynthia
+      .container
+        +choice('Residential')
+        +choice('Commercial')
     .container
       .jumbotron
         h1 Hello!
@@ -36,5 +47,7 @@ html
     footer
       p Running on node with Express, Jade and Stylus
 
+    script(src='js/scripts.js')
 
-    //link(href='')
+
+  

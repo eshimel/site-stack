@@ -1,103 +1,35 @@
 @import url("http://fonts.googleapis.com/css?family=Quicksand");
 /*
- * Nib provides a CSS reset
- */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-weight: inherit;
-  font-style: inherit;
-  font-family: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}
-body {
-  line-height: 1;
-  color: #000;
-  background: #fff;
-}
-ol,
-ul {
-  list-style: none;
-}
-table {
-  border-collapse: separate;
-  border-spacing: 0;
-  vertical-align: middle;
-}
-caption,
-th,
-td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-}
-a img {
-  border: none;
-}
-/*
  * Store the main color and
  * background color as variables
  */
-`,
+.navbar {
+  font-family: 'Quicksand';
+  margin-bottom: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: none;
+}
+.navbar .navbar-nav a:link,
+.navbar .navbar-nav a:visited,
+.navbar .navbar-nav a:active {
+  color: #fff;
+}
+.navbar a:link,
+.navbar a:visited,
+.navbar a:active {
+  color: #fff;
+}
+.navbar-default {
+  color: #faf9f0;
+  background-color: #fa5b4d;
+}
+.choice {
+  padding: 20px;
+}
+.choice .h_image {
+  padding: 10px;
+}
 body {
   font-family: 'Georgia';
   background-color: #faf9f0;
@@ -105,7 +37,8 @@ body {
 }
 header {
   font-family: 'Quicksand';
-  padding: 50px 10px;
+  height: 900px;
+  padding: 200px 10px;
   color: #fff;
   font-size: 25px;
   text-align: center;
@@ -124,14 +57,12 @@ header {
 }
 .main-content {
   float: left;
-  width: 300px;
 }
 .main-content p {
   margin-bottom: 20px;
 }
 .sidebar {
   float: left;
-  width: 200px;
 }
 .sidebar .widget {
 /*

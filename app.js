@@ -1,5 +1,4 @@
 var express = require('express')
-  , bootstrap = ('bootstrap-styl')
   , stylus = require('stylus')
   , nib = require('nib')
 var path = require('path');

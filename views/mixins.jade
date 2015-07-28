@@ -1,3 +1,11 @@
+
+//- Header mixins
+mixin choice(nameIn)
+    h2(class=["col-md-6","choice"], id="residential")= nameIn
+        img(class="h_image" src="http://placehold.it/50x50")
+
+
+
 //- Navbar mixins
 mixin nav(name, id, style)
     - var style = (typeof style === 'undefined') ? "default" : style
