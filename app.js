@@ -1,3 +1,4 @@
+//livereload = require('express-livereload');
 var express = require('express')
   , stylus = require('stylus')
   , nib = require('nib')
@@ -77,11 +78,14 @@ app.get('/', function(req, res){
 });
 
 app.get('/about', function(req, res){
-  res.render('index', {
+  res.render('about', {
     title: 'About'
   });
 });
 
+app.get('/searching', function(req, res){
+ res.send('WHEEE');
+});
 
 
 module.exports = app;

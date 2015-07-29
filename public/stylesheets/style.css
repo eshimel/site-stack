@@ -25,10 +25,18 @@
   background-color: #fa5b4d;
 }
 .choice {
-  padding: 20px;
+  padding: 15px;
 }
 .choice .h_image {
   padding: 10px;
+}
+#search {
+  text-align: center;
+  width: 500px;
+  height: 70px;
+  font-size: 3.5em;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
 }
 body {
   font-family: 'Georgia';
@@ -37,8 +45,7 @@ body {
 }
 header {
   font-family: 'Quicksand';
-  height: 900px;
-  padding: 200px 10px;
+  padding: 50px 10px;
   color: #fff;
   font-size: 25px;
   text-align: center;

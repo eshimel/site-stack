@@ -14,6 +14,7 @@
           
         },
         watch: {
+          
           // Watch stylus files in "styl" directory
           stylus: {
             files: ['public/stylesheets/*.styl'],
@@ -21,9 +22,6 @@
           }
         },
         jquery: {
-          // the parts you want to exclude from your build 
-          // possible values ['ajax', 'css', 'deprecated', 'dimensions', 'effects', 'offset'] 
-          exclude: ['ajax'],
           // the jQuery version (currently only 1.8.3 is supported) - defaults to 1.8.3 
           version: '1.8.3',
           // output location (relative to your grunt.js file location) 

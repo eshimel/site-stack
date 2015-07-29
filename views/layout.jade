@@ -16,6 +16,7 @@ html
     script(src='https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js')
   
     link(rel='stylesheet', href='stylesheets/style.css')
+
   body
     +nav("Costa's Cleaning", "dropdown_menu")
       +nav_item( "/") Home
@@ -33,12 +34,18 @@ html
       h1 Hello
       h2 We're Kelly & Cynthia
       .container
-        +choice('Residential')
-        +choice('Commercial')
+        //+choice('Residential')
+        //+choice('Commercial')
     .container
       .jumbotron
-        h1 Hello!
+        h1 We clean your house or whatever
     .container
+      input#search(type="search", placeholder="Search Craig's Jobs")
+      h2#results
+      button.btn-group
+        button.btn.btn-default left
+        button.btn.btn-default middle
+        button.btn.btn-default right
       .row
         .main-content.col-md-8
           block content
