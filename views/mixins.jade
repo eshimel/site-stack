@@ -10,7 +10,7 @@ mixin choice(nameIn)
 //- Navbar mixins
 mixin nav(name, id, style)
     - var style = (typeof style === 'undefined') ? "default" : style
-    nav( role="navigation", class=["navbar", "navbar-" + style] )
+    nav( role="navigation", class=["navbar", "navbar-" + style, "navbar-fixed-top"] )
         .navbar-header
             button.navbar-toggle.collapsed( type="button", data-toggle="collapse", data-target="#" + id, aria-expanded="false", aria-controls="navbar")
                 span.sr-only Toggle navigation
@@ -42,3 +42,8 @@ mixin nav_header
         block
  
 //- End navbar mixins
+
+
+
+
+

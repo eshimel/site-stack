@@ -1,14 +1,41 @@
+include mixins/body-mixins
+
 extend layout
+
+
+block buttons
+  .btn-group.btn-group-justified
+    .btn-group
+      button#phone-button.btn.btn-default 
+        span.glyphicon.glyphicon-phone
+        | phone
+    .btn-group
+      button#mail-button.btn.btn-default 
+        span.glyphicon.glyphicon-envelope
+        | mail
+
+
 block content
   p
-    | We are Kelly and Cinthia. We have over five years of experience of residential and commercial and after construction cleaning.We provide professional regular cleaning,maintaining and deep industrial cleaning, as needed. We bring along all the cleaning supplies we need and also our own vacuum cleaner. Constant communication is what allows us to guarantee our customers satisfaction, which is our number one goal.We are ready to provide QUALITY CLEANING, RELIABLE SERVICE and EXCELLENT REFERENCES.
+    include body.txt
 
-block sidebar
-  .widget
-    h1 Widget
+
+block contact
+  .row
+    h2.col-md-12
+      | Call today for a free estimate 
+      span#number 781.752.8176
+
+block references
+  blockquote
     p
-      | Sed auctor neque eu tellus rhoncus ut
-      | eleifend nibh porttitor. Ut in nulla enim.
-    p
-      | Vivamus hendrerit arcu sed erat molestie
-      | vehicula.
+      | Kelly and the gang do a really super job team!
+
+
+block bullets
+  +bullet ("Residential")
+    p One time or regular cleaning, competitive pricing and excellent service
+  +bullet ("Commercial")
+    p Professional service for commercial facilities.
+  +bullet ("Construction") 
+    p Clean up for projects underway or wrapping up. 

@@ -1,6 +1,6 @@
 
 
-@import url('http://fonts.googleapis.com/css?family=Quicksand')
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,600,300|Quicksand')
 
 @import 'nib'
 //@import 'mixins/strap'
@@ -45,11 +45,42 @@ background-color = #faf9f0
 .navbar-default
   color background-color
   background-color main-color
+  
+.btn-group
+  .btn-default
+    
+    border none
 
 
 //----------------------------------
-//    PROJECT CSS                   |
+//    PROJECT CSS                  |
 //----------------------------------
+
+.contact
+  font-family 'Quicksand'
+  font-size 3vw
+  background-color main-color
+  color background-color
+  border-radius 5px
+  padding 8px
+  text-align center
+  margin-bottom 20px
+  
+  h2
+    margin 10px
+    line-height 150%
+
+#number
+  font-family 'Quicksand'
+  background-color background-color
+  main-color main-color
+  color main-color
+  padding 5px
+  border-radius 3px
+  
+.bullet
+  font-family 'Quicksand'
+  text-align center
 
 .choice
   padding 15px
@@ -65,9 +96,13 @@ background-color = #faf9f0
   font-size 3.5em
   border-radius 8px
 
+//----------------------------------
+//    PRESET CSS                   |
+//----------------------------------
     
 body
-  font-family 'Georgia'
+  font-family 'Open Sans'
+  font-size 1.4em
   background-color background-color
   color #444
 
@@ -77,9 +112,11 @@ header
   //height 900px
   padding 50px 10px
   color #fff
-  font-size 25px
+  font-size 3em
   text-align center
-
+  
+  .message
+    text-align left
   /*
    * Note the use of the `main-color`
    * variable and the `darken` function
@@ -106,11 +143,12 @@ header
 
   .widget
 
-    /*
+  /*
      * Note the lack of vendor
      * prefixes here. Nib will
      * add them for us
      */
+    
     border-radius 3px
     border 1px solid #ccc
     margin-left 20px
@@ -134,8 +172,11 @@ p
   line-height 1.8
 
 footer
-  width 500px
-  margin 50px auto
+  background-color #424242
+  color background-color
+  padding 25px
+  width 100%
+  height 200px
+  margin-top 50px
   border-top 1px dotted #ccc
-  padding-top 5px
   font-size 13px

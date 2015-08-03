@@ -31,28 +31,47 @@ html
         +nav_item( "#" ) Separated link
         +nav_item( "#" ) One more separated link
     header
-      h1 Hello
-      h2 We're Kelly & Cynthia
+      .container
+        .row
+          .message.col-md-7.col-md-offset-2
+            h1 Hello, we're Kelly & Cinthia
+            h2 Residential & Commercial Cleaning
+            block buttons
       .container
         //+choice('Residential')
         //+choice('Commercial')
-    .container
+    //.container
       .jumbotron
         h1 We clean your house or whatever
+    //.container
+    //  input#search(type="search", placeholder="Search Craig's Jobs")
+    //  h2#results
     .container
-      input#search(type="search", placeholder="Search Craig's Jobs")
-      h2#results
-      button.btn-group
-        button.btn.btn-default left
-        button.btn.btn-default middle
-        button.btn.btn-default right
       .row
-        .main-content.col-md-8
+        block bullets
+
+    .container
+      .row
+        .contact.col-md-12
+          block contact
+      .row
+        .main-content.col-md-10.col-md-offset-1
           block content
-        .sidebar.col-md-4
-          block sidebar
+
+      .row
+        .references.col-md-12
+          block references
+        //.sidebar.col-md-4
+        //  block sidebar
     footer
-      p Running on node with Express, Jade and Stylus
+      address 
+        | Costa's Cleaning
+        br
+        | 639 Address rd
+        br
+        | Soutwest Metro, MA, 02492
+        br
+        a(href="mailto:somone@mail.com") incomingmail@costa.com
 
     script(src='js/scripts.js')
 
