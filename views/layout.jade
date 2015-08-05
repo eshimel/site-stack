@@ -6,6 +6,7 @@ doctype
 html
   head
     title #{title} - Costa Cleaning | Boston
+    meta(name="Costa's Cleaning" content="Residential and Commericial cleaner servincing the Boston Metro Area")
     
     link(href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', rel='stylesheet')
 
@@ -34,8 +35,10 @@ html
       .container
         .row
           .message.col-md-7.col-md-offset-2
-            h1 Hello, we're Kelly & Cinthia
+            h1 Costa's Cleaning
             h2 Residential & Commercial Cleaning
+        .row
+          .col-md-3.col-md-offset-2
             block buttons
       .container
         //+choice('Residential')
@@ -43,9 +46,6 @@ html
     //.container
       .jumbotron
         h1 We clean your house or whatever
-    //.container
-    //  input#search(type="search", placeholder="Search Craig's Jobs")
-    //  h2#results
     .container
       .row
         block bullets
