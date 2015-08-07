@@ -38,8 +38,8 @@ html
             h1 Costa's Cleaning
             h2 Residential & Commercial Cleaning
         .row
-          .col-md-3.col-md-offset-2
-            block buttons
+          .message.col-md-7.col-md-offset-2
+            block mail-phone
       .container
         //+choice('Residential')
         //+choice('Commercial')
@@ -64,14 +64,18 @@ html
         //.sidebar.col-md-4
         //  block sidebar
     footer
-      address 
-        | Costa's Cleaning
-        br
-        | 639 Address rd
-        br
-        | Soutwest Metro, MA, 02492
-        br
-        a(href="mailto:somone@mail.com") incomingmail@costa.com
+      .container
+        .row
+          address
+            strong
+              | Costa's Cleaning
+            br
+            | 639 Address rd
+            br
+            | Soutwest Metro, MA, 02492
+            br
+            a(class="contact-bottom" href="mailto:somone@mail.com") incomingmail@costa.com
+ 
 
     script(src='js/scripts.js')
 

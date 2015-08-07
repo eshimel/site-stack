@@ -21,9 +21,9 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    $("#phone-button").click(function(e){
+    $(".contact-btn").click(function(e){
         e.stopPropagation();
-        alert("Hello")
+        //alert("Hello")
     });
 });
 
