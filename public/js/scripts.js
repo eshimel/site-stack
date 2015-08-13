@@ -1,9 +1,9 @@
-$.ajax({
-    url: "/",
-    success: function(data){
-        $('body').load('/site/pages/about.html body');
-    }
-});
+//$.ajax({
+//    url: "/",
+//    success: function(data){
+//        $('body').load('/site/pages/about.html body');
+//    }
+//});
 
 
 function buttonClick(e) {

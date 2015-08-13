@@ -19,8 +19,15 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 //set up mongoose w/ mongo
-//mongoose.connect('mongodb://45.55.207.169:27555/test'); 
+//mongoose.connect('mongodb://localhost:27017/test'); 
 
+//mongoose.connect('mongodb://localhost:27017/test', functigon (err, res) {
+//  if (err) {
+//  console.log ('ERROR connecting' + '. ' + err);
+//  } else {
+//  console.log ('Succeeded connecting');
+//  }
+//});
 
 
 
@@ -68,23 +75,6 @@ app.use(function(err, req, res, next) {
     message: err.message,
     error: {}
   });
-});
-
-
-app.get('/', function(req, res){
-  res.render('index', {
-    title: 'Home'
-  });
-});
-
-app.get('/about', function(req, res){
-  res.render('about', {
-    title: 'About'
-  });
-});
-
-app.get('/searching', function(req, res){
- res.send('WHEEE');
 });
 
 

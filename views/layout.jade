@@ -5,7 +5,7 @@ include mixins
 doctype
 html
   head
-    title #{title} - Costa Cleaning | Boston
+    title #{title}
     meta(name="Costa's Cleaning" content="Residential and Commericial cleaner servincing the Boston Metro Area")
     
     link(href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', rel='stylesheet')
@@ -19,63 +19,27 @@ html
     link(rel='stylesheet', href='stylesheets/style.css')
 
   body
-    +nav("Costa's Cleaning", "dropdown_menu")
-      +nav_item( "/") Home
-      +nav_item( "/about" ) About
-      +nav_item( "/" ) Contact
-      +nav_item_dropdown( "#" )( label="Dropdown")
-        +nav_item( "#" ) Action
-        +nav_item( "#" ) Another action
-        +nav_item( "#" ) Something else here
-        +nav_divider
-        +nav_header Nav header
-        +nav_item( "#" ) Separated link
-        +nav_item( "#" ) One more separated link
+
+    //include includes/navbar.jade
+
     header
       .container
         .row
-          .message.col-md-7.col-md-offset-2
-            h1 Costa's Cleaning
-            h2 Residential & Commercial Cleaning
-        .row
-          .message.col-md-7.col-md-offset-2
-            block mail-phone
-      .container
-        //+choice('Residential')
-        //+choice('Commercial')
-    //.container
-      .jumbotron
-        h1 We clean your house or whatever
+          .message.col-md-12
+            img(src="http://manhattanpres.com/wp-content/uploads/2013/09/ManhattanRooster-OrangeNavy.png")
+            h1 Church of the Rooster-God
+        //.row
+        //  .message.col-md-7.col-md-offset-2
+        //    block mail-phone
     .container
-      .row
-        block bullets
-
-    .container
-      .row
-        .contact.col-md-12
-          block contact
       .row
         .main-content.col-md-10.col-md-offset-1
           block content
 
-      .row
-        .references.col-md-12
-          block references
-        //.sidebar.col-md-4
-        //  block sidebar
-    footer
-      .container
-        .row
-          address
-            strong
-              | Costa's Cleaning
-            br
-            | 639 Address rd
-            br
-            | Soutwest Metro, MA, 02492
-            br
-            a(class="contact-bottom" href="mailto:somone@mail.com") incomingmail@costa.com
- 
+    //.sidebar.col-md-4
+    //  block sidebar
+    
+    include includes/footer.jade
 
     script(src='js/scripts.js')
 

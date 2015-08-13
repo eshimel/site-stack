@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/about', function(req, res, next) {
-  res.render('about', { title: 'Costa Cleaning' });
+  res.render('about', { title: 'Ian Cullinane' });
 });
 
 

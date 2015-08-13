@@ -1,0 +1,19 @@
+include mixins/body-mixins
+
+extend layout
+
+
+block mail-phone
+  a(href="tel:781-781-8050").contact-btn.btn.btn-default 
+    span.glyphicon.glyphicon-phone
+    |  781.775.8050
+  a(href="mailto:ian@iancullinane.com").contact-btn.btn.btn-default 
+    span.glyphicon.glyphicon-envelope
+    |  ian@iancullinane.com
+
+
+block content
+  p
+    | Users page
+
+
