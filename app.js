@@ -7,10 +7,15 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
+
 var mongoose = require('mongoose'); 
+//var configDB = require('./config/database.js');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+
+
 
 var app = express();
 
@@ -21,13 +26,13 @@ app.set('view engine', 'jade');
 //set up mongoose w/ mongo
 //mongoose.connect('mongodb://localhost:27017/test'); 
 
-//mongoose.connect('mongodb://localhost:27017/test', functigon (err, res) {
-//  if (err) {
-//  console.log ('ERROR connecting' + '. ' + err);
-//  } else {
-//  console.log ('Succeeded connecting');
-//  }
-//});
+mongoose.connect('mongodb://localhost:27017/test', function (err, res) {
+  if (err) {
+  console.log ('ERROR connecting' + '. ' + err);
+  } else {
+  console.log ('Succeeded connecting');
+  }
+});
 
 
 
@@ -38,6 +43,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 
 
 // use the static page stuffs
