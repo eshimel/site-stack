@@ -1,21 +1,22 @@
 //livereload = require('express-livereload');
-var express = require('express')
-  , stylus = require('stylus')
-  , nib = require('nib')
+var express = require('express');
+var stylus = require('stylus');
+var nib = require('nib');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var passport = require('passport');
 
 var mongoose = require('mongoose'); 
+
 //var configDB = require('./config/database.js');
+require('./config/passport')(passport); // pass passport for configuration
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
-
 
 var app = express();
 
@@ -45,12 +46,27 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 
-
 // use the static page stuffs
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+
+
+
+//routes? for passport
+require('./routes/routes.js')(app, passport);
+
+// required for passport
+//app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+//app.use(passport.initialize());
+//app.use(passport.session()); // persistent login sessions
+//app.use(flash()); // use connect-flash for flash messages stored in session
+
+
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

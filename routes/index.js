@@ -5,13 +5,11 @@ var wikipedia = require('wikipedia-js');
 var flash    = require('connect-flash');
 var router = express.Router();
 
+// Routes
+
+
 var User   = require('../models/user'); // get our mongoose model
-
-//var db = mongoose.connect('mongodb://localhost:27017/test');
-
-
-var query = "Napoleon Bonaparte";
-var options = {query: query, format: "html", summaryOnly: true};
+var Roosterite  = require('../models/roosterite.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -26,11 +24,8 @@ router.get('/about', function(req, res, next) {
 
 router.get('/login', function(req, res, next) {
   // render the page and pass in any flash data if it exists
-  res.render('login'); 
+  res.render('login', { title: 'Ian Cullinane' }); 
 });
-
-
-
 
 
 router.get('/setup', function(req, res) {
