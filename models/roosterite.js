@@ -6,6 +6,8 @@ var bcrypt   = require('bcrypt-nodejs');
 // define the schema for our user model
 var roosterSchema = mongoose.Schema({
 
+    username: String,
+
     local            : {
         email        : String,
         password     : String,

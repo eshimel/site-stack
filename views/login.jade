@@ -4,13 +4,15 @@ extend layout
 
 block content
 	form(class='form-horizontal', action='/login', method='POST')
+		-if(messages)
+		div#note #{messages}
 		.form-group
-			label.col-sm-2.control-label(for="emailInput") email
+			label.col-sm-2.control-label(for="email") email
 			.col-sm-10
-				input(type="email" class="form-control" id="emailInput" placeholder="Email")
+				input(type="email" class="form-control" name="email" placeholder="Email")
 			label.col-sm-2.control-label(for="passwordInput") password
 			.col-sm-10
-				input(type="pw" class="form-control" id="pwInput" placeholder="Password")
+				input(type="password" class="form-control" name="password" placeholder="Password")
 
 		.form-group
 			button.col-sm-offset-2(type="submit" class="btn btn-default") Convert

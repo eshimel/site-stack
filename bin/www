@@ -8,6 +8,8 @@ var app = require('../app');
 var debug = require('debug')('test:server');
 var http = require('http');
 
+//var mongoose = require('mongoose');
+//var configDB = require('../config/database.js');
 /**
  * Get port from environment and store in Express.
  */
@@ -76,6 +78,15 @@ function onError(error) {
       throw error;
   }
 }
+
+// connectd to local mongo db and show status
+//mongoose.connect(configDB.url, function (err, res) {
+//  if (err) {
+//  console.log ('ERROR connecting' + '. ' + err);
+//  } else {
+//  console.log ('Succeeded connecting');
+//  }
+//});
 
 /**
  * Event listener for HTTP server "listening" event.

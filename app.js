@@ -1,41 +1,51 @@
-//livereload = require('express-livereload');
+// use the server
 var express = require('express');
+
+// require frontend modules
 var stylus = require('stylus');
 var nib = require('nib');
 var path = require('path');
 var favicon = require('serve-favicon');
+
+// define the logger
 var logger = require('morgan');
+
+// Parsers TODO: Learn more about these two ubiquitous classes
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var passport = require('passport');
 
+//passport and session modules
+var flash = require('connect-flash');
+var passport = require('passport');
+var session      = require('express-session');
+
+//databes module
 var mongoose = require('mongoose'); 
 
-//var configDB = require('./config/database.js');
-require('./config/passport')(passport); // pass passport for configuration
+// vonfigure modules
+var configDB = require('./config/database.js');
 
-
-var routes = require('./routes/index');
-var users = require('./routes/users');
-
-var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
-//set up mongoose w/ mongo
-//mongoose.connect('mongodb://localhost:27017/test'); 
-
-mongoose.connect('mongodb://localhost:27017/test', function (err, res) {
+// connectd to local mongo db and show status
+mongoose.connect(configDB.url, function (err, res) {
   if (err) {
   console.log ('ERROR connecting' + '. ' + err);
   } else {
   console.log ('Succeeded connecting');
   }
-});
+})
+// pass passport for configuration
+require('./config/passport')(passport); 
 
 
+//var routes = require('./routes/index');
+//var users = require('./routes/users');
+
+// set the app as the express module
+var app = express();
+
+// set up for jade templating
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
 
 // uncomment after placing your favicon in /public
@@ -45,26 +55,23 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-
 // use the static page stuffs
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+// use the modular routes
+//app.use('/', routes);
+//app.use('/users', users);
 
-
-
-//routes? for passport
-require('./routes/routes.js')(app, passport);
 
 // required for passport
-//app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
-//app.use(passport.initialize());
-//app.use(passport.session()); // persistent login sessions
-//app.use(flash()); // use connect-flash for flash messages stored in session
+app.use(session({ secret: 'graceofhisbeak' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
 
 
-
+// load the routes file, and pass in the passport module
+require('./routes/routes.js')(app, passport);
 
 
 
@@ -100,4 +107,9 @@ app.use(function(err, req, res, next) {
 });
 
 
+
+
+
+
+// export the app to be used
 module.exports = app;
