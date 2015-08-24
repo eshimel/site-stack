@@ -4,30 +4,24 @@ include mixins
 
 doctype
 html
-  include includes/meta.jade
+  include includes/meta
 
   body
-
-    include includes/navbar.jade
+    
+    include includes/navbar
 
     header
-      .container
-        .row
-          .rooster-message.col-md-12
-            //img(src="http://manhattanpres.com/wp-content/uploads/2013/09/ManhattanRooster-OrangeNavy.png")
-            h1 Church of the Rooster-God
-        .row
-          .rooster-message.col-md-12
-            block login
+      block header
+      block login
     .container
       .row
-        .main-content.col-md-10.col-md-offset-1
+        .main-content.col-md-8.col-md-offset-1
           block content
 
-    //.sidebar.col-md-4
-    //  block sidebar
+    .sidebar.col-md-4
+      block sidebar
     
-    include includes/footer.jade
+    include includes/footer
 
     script(src='js/scripts.js')
 

@@ -15,6 +15,8 @@ module.exports = function(app, passport) {
     // =====================================
     // HOME PAGE (with login links) ========
     // =====================================
+
+
     app.get('/', function(req, res) {
         if(req.user) {
             Rooster.count(function(err, count){
