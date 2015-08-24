@@ -1,16 +1,35 @@
+//databes module
+var mongoose = require('mongoose'); 
+
+// load up the user model
+var Rooster = require('../models/roosterite');
+var Prayer = require('../models/prayers');
+
+var db = mongoose.connection;
+
+
 // app/routes.js
 module.exports = function(app, passport) {
+
 
     // =====================================
     // HOME PAGE (with login links) ========
     // =====================================
     app.get('/', function(req, res) {
-        res.render('index'); // load the index.ejs file
-    });
-
-
-    app.get('/deadend', function(req, res) {
-        res.send('poop');
+        if(req.user) {
+            Rooster.count(function(err, count){
+                res.render('index', {
+                    count: count,
+                    user: req.user
+                })
+            })
+        } else {
+            Rooster.count(function(err, count){
+                res.render('index', {
+                    count: count,
+                })
+            })
+        }
     });
 
     // =====================================
@@ -53,6 +72,36 @@ module.exports = function(app, passport) {
             user : req.user // get the user out of session and pass to template
         });
     });
+
+
+    app.get('/prayerwall', function(req, res){
+        res.render('prayer', { message: req.flash('signupMessage') });
+    })
+
+
+
+    app.post('/prayerwall', function(req, res, prayer) {
+
+        // create a todo, information comes from AJAX request from Angular
+        Prayer.create({
+            prayer : req.body.prayer
+        }, function(err, prayer) {
+            if (err)
+                res.send(err);
+
+            // get and return all the todos after you create another
+            Prayer.find(function(err, prayer) {
+                if (err)
+                    res.send(err)
+                res.json(prayer);
+            });
+        });
+
+    });
+
+
+
+
 
     // =====================================
     // LOGOUT ==============================

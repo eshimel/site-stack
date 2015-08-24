@@ -35,15 +35,15 @@ module.exports = function(passport) {
 
     passport.use('local-signup', new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
-        usernameField : 'email',
+        usernameField : 'username',
         passwordField : 'password',
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
-    function(req, email, password, done) {
+    function(req, username, password, done) {
 
         // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
-        Rooster.findOne({ 'local.email' :  email }, function(err, user) {
+        Rooster.findOne({ 'username' :  username }, function(err, user) {
             // if there are any errors, return the error
             if (err)
                 return done(err);
@@ -58,7 +58,8 @@ module.exports = function(passport) {
                 var newUser            = new Rooster();
 
                 // set the user's local credentials
-                newUser.local.email    = email;
+                newUser.username    = username;
+                newUser.level      = "Apostle";   
                 newUser.local.password = newUser.generateHash(password); // use the generateHash function in our user model
 
                 // save the user
@@ -81,15 +82,15 @@ module.exports = function(passport) {
 
     passport.use('local-login', new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
-        usernameField : 'email',
+        usernameField : 'username',
         passwordField : 'password',
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
-    function(req, email, password, done) { // callback with email and password from our form
+    function(req, username, password, done) { // callback with email and password from our form
 
         // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
-        Rooster.findOne({ 'local.email' :  email }, function(err, user) {
+        Rooster.findOne({ 'username' :  username }, function(err, user) {
             // if there are any errors, return the error before anything else
             if (err)
                 return done(err);

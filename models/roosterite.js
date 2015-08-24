@@ -7,6 +7,7 @@ var bcrypt   = require('bcrypt-nodejs');
 var roosterSchema = mongoose.Schema({
 
     username: String,
+    level: String,
 
     local            : {
         email        : String,
@@ -32,6 +33,8 @@ var roosterSchema = mongoose.Schema({
     }
 
 });
+
+
 
 // methods ======================
 // generating a hash

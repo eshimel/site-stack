@@ -43,6 +43,7 @@ require('./config/passport')(passport);
 // set the app as the express module
 var app = express();
 
+
 // set up for jade templating
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
