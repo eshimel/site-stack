@@ -1,5 +1,17 @@
     module.exports = function(grunt) {
       grunt.initConfig({
+
+        express: {
+          default_option: {}
+        },
+
+        concurrent: {
+            dev: ["watch"],
+            options: {
+                logConcurrentOutput: true
+            }
+        },
+
         stylus: {
           compile: {
             options: {
@@ -34,9 +46,17 @@
       // Load the plugin that provides the "watch" & "stylus" tasks.
       //grunt.LoadNpmTasks('bootstrap-styl');
       grunt.loadNpmTasks('grunt-contrib-watch');
+      grunt.loadNpmTasks('grunt-express');
+      grunt.loadNpmTasks('grunt-concurrent')
       grunt.loadNpmTasks('grunt-contrib-stylus');
       grunt.loadNpmTasks('grunt-jquerybuilder');
+      grunt.loadNpmTasks('grunt-run');
     
       // Default task(s).
-      grunt.registerTask('default', ['stylus','jquery','watch']);
+      grunt.registerTask('default', ['stylus','jquery','watch','express']);
+      grunt.registerTask("run", ['stylus', 'watch','run:rooster']);
+
+      grunt.registerTask("server", ['run:rooster']);
+
+
     };

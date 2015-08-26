@@ -15,12 +15,19 @@ module.exports = function(app, passport) {
     // =====================================
     // HOME PAGE (with login links) ========
     // =====================================
+    app.get('/', function(req, res, next) {
+        var roosterMap = {};
+        Rooster.find({}, function(err, roosters) {
 
+            roosters.forEach(function(rooster){
+                roosterMap[rooster._id] = rooster;
+            });
 
-    app.get('/', function(req, res) {
+        });
         if(req.user) {
             Rooster.count(function(err, count){
                 res.render('index', {
+                    roosters : roosterMap,
                     count: count,
                     user: req.user
                 })
@@ -29,11 +36,13 @@ module.exports = function(app, passport) {
             Rooster.count(function(err, count){
                 res.render('index', {
                     count: count,
+                    roosters : roosterMap
                 })
             })
         }
     });
 
+    
     // =====================================
     // LOGIN ===============================
     // =====================================
@@ -52,7 +61,7 @@ module.exports = function(app, passport) {
     }));
 
     // =====================================
-    // /convert ==============================
+    // /Convert=============================
     // =====================================
     // show the /convert form
     app.get('/convert', function(req, res) {

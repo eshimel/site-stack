@@ -21,7 +21,13 @@ block content
   -else
    h2 Greetings Early Riser!
   p
-    include body.txt
+    include texts/body.txt
 
+
+
+block sidebar
+  h3 His eggs
+  each rooster in roosters
+    li(class="sidebar list-group-item")= rooster.username
 
 

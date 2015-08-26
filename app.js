@@ -39,6 +39,7 @@ require('./config/passport')(passport);
 
 //var routes = require('./routes/index');
 //var users = require('./routes/users');
+var wall = require('./routes/wall');
 
 // set the app as the express module
 var app = express();
@@ -59,9 +60,13 @@ app.use(cookieParser());
 // use the static page stuffs
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
+//-------------------------------------
 // use the modular routes
 //app.use('/', routes);
-//app.use('/users', users);
+app.use('/wall', wall);
+//-------------------------------------
 
 
 // required for passport

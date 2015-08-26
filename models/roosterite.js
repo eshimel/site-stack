@@ -47,5 +47,16 @@ roosterSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.local.password);
 };
 
+roosterSchema.methods.count = function(obj) {
+    var count = 0;
+
+    for(var prop in obj) {
+        if(obj.hasOwnProperty(prop))
+            ++count;
+    }
+
+    return count;
+}
+
 // create the model for users and expose it to our app
 module.exports = mongoose.model('Roosterite', roosterSchema);

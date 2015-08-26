@@ -1,0 +1,24 @@
+include mixins/body-mixins
+
+extend layout
+
+block login
+  a(href="/convert").contact-btn.btn.btn-default 
+    |  Convert
+  a(href="/login").contact-btn.btn.btn-default 
+    |  Prasie his wattle 
+
+
+block content
+  -if(roosters)
+   h2 Hello #{roosters.count}
+  -else
+   h2 Greetings Early Riser!
+  p
+    include texts/body.txt
+  ul
+  each rooster in roosters
+    li= rooster.username
+
+
+
