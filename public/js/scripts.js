@@ -14,11 +14,11 @@ function buttonClick(e) {
 
 
 
-$(document).ready(function(){
-    $("header").click(function(){
-        $(this).slideUp();
-    });
-});
+//$(document).ready(function(){
+//    $("header").click(function(){
+//        $(this).slideUp();
+//    });
+//});
 
 $(document).ready(function(){
     $(".contact-btn").click(function(e){

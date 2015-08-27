@@ -90,9 +90,15 @@ header {
   font-family: 'Quicksand';
   width: 100%;
   padding: 50px 10px;
-  color: #000;
+  color: #fff;
   font-size: 3em;
   text-align: center;
+  text-shadow: 5px 5px #f00;
+  background-image: url("../images/rooster2.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-position: center;
 /*
    * Note the use of the `main-color`
    * variable and the `darken` function
@@ -103,6 +109,13 @@ header {
 }
 header .rooster-message {
   margin: auto;
+}
+header .rooster-message .brand-image {
+  display: inline-block;
+  width: 100%;
+}
+header .rooster-message .header-content {
+  text-align: left;
 }
 .container {
   width: 90%;

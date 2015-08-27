@@ -11,7 +11,7 @@ block login
 
 block content
   -if(roosters)
-   h2 Hello #{roosters.count}
+   h2 Hello #{Object.keys(roosters).length}
   -else
    h2 Greetings Early Riser!
   p

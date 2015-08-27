@@ -16,30 +16,20 @@ module.exports = function(app, passport) {
     // HOME PAGE (with login links) ========
     // =====================================
     app.get('/', function(req, res, next) {
-        var roosterMap = {};
         Rooster.find({}, function(err, roosters) {
+        var roosterMap = {};
 
-            roosters.forEach(function(rooster){
-                roosterMap[rooster._id] = rooster;
-            });
-
+        roosters.forEach(function(rooster){
+            roosterMap[rooster.username] = rooster;
         });
-        if(req.user) {
-            Rooster.count(function(err, count){
-                res.render('index', {
-                    roosters : roosterMap,
-                    count: count,
-                    user: req.user
-                })
-            })
-        } else {
-            Rooster.count(function(err, count){
-                res.render('index', {
-                    count: count,
-                    roosters : roosterMap
-                })
-            })
-        }
+
+        res.render('index', {
+            user : req.user,
+            roosters : JSON.parse(JSON.stringify(roosterMap))
+        });
+        //console.log(roosters);
+
+    });
     });
 
     
@@ -85,28 +75,37 @@ module.exports = function(app, passport) {
     });
 
 
-    app.get('/prayerwall', function(req, res){
+    app.get('/prayerwall', function(req, res, next){
+        var user = req.user;
+        console.log(user)
         res.render('prayer', { message: req.flash('signupMessage') });
     })
 
 
 
-    app.post('/prayerwall', function(req, res, prayer) {
+    app.post('/prayerwall', function(req, res) {
 
-        // create a todo, information comes from AJAX request from Angular
-        Prayer.create({
-            prayer : req.body.prayer
-        }, function(err, prayer) {
-            if (err)
-                res.send(err);
-
-            // get and return all the todos after you create another
-            Prayer.find(function(err, prayer) {
-                if (err)
-                    res.send(err)
-                res.json(prayer);
-            });
+        new Prayer({prayer : req.body.prayer})
+        .save(function(err, prayer) {
+            res.send(prayer);
         });
+
+        
+
+        // // create a todo, information comes from AJAX request from Angular
+        // Prayer.create({
+        //     prayer : req.body.prayer
+        // }, function(err, prayer) {
+        //     if (err)
+        //         res.send(err);
+
+        //     // get and return all the todos after you create another
+        //     Prayer.find(function(err, prayer) {
+        //         if (err)
+        //             res.send(err)
+        //         res.json(prayer);
+        //     });
+        // });
 
     });
 

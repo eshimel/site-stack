@@ -2,16 +2,10 @@ include mixins/body-mixins
 
 extend layout
 
-block header
-  include includes/header
 
-block login
-  a(href="/convert").contact-btn.btn.btn-default 
-    |  Convert
-  a(href="/login").contact-btn.btn.btn-default 
-    |  Prasie his wattle
-  p
-    | His followers now number #{count}
+block hero
+  include includes/login
+
 
 block content
   -if(user)
@@ -26,7 +20,7 @@ block content
 
 
 block sidebar
-  h3 His eggs
+  h3 His Apostles
   each rooster in roosters
     li(class="sidebar list-group-item")= rooster.username
 

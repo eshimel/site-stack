@@ -17,12 +17,13 @@ router.get('/', function(req, res) {
         var roosterMap = {};
 
         roosters.forEach(function(rooster){
-            roosterMap[rooster._id] = rooster;
+            roosterMap[rooster.username] = rooster;
         });
 
         res.render('wall', {
-            roosters : roosterMap
-        })
+            roosters : JSON.parse(JSON.stringify(roosterMap))
+        });
+        console.log(roosters);
 
     });
 
