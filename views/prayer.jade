@@ -26,3 +26,11 @@ block content
         .form-group
             button.col-sm-2(type="submit" class="btn btn-default") Pray
 
+    h3 Recent Prayers
+        .container
+            .row
+                .col-md-12
+                    ul
+                    each prayer in prayers
+                        li(class="list-group-item")= prayer.prayer
+
