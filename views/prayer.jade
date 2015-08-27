@@ -3,34 +3,37 @@ include mixins/body-mixins
 extend layout
 
 
-block login
-  a(href="/convert").contact-btn.btn.btn-default 
-    |  Convert
-  a(href="/login").contact-btn.btn.btn-default 
-    |  Prasie his wattle
-  p
-    | His followers now number #{count}
+//block login
+//  a(href="/convert").contact-btn.btn.btn-default 
+//    |  Convert
+//  a(href="/login").contact-btn.btn.btn-default 
+//    |  Prasie his wattle
+//  p
+//    | His followers now number #{count}
 
 
 block content
-    h1 Prayers to his waddle
+    .container
+      .row
+        .main-content.col-md-12
+            h1 Prayers to his waddle
 
-    form(class='form-horizontal', action='/prayerwall', method='POST')
-        -if(message.length > 0)
-            .alert.alert-danger #{message}
-        .form-group
-            label.col-sm-12.control-label By the grace of His beak
-            .col-sm-12
-                input(type="text" class="form-control" name="prayer" placeholder="thanks be to the Rooster")
+            form(class='form-horizontal', action='/prayerwall', method='POST')
+                -if(message.length > 0)
+                    .alert.alert-danger #{message}
+                .form-group
+                    label.col-sm-12.control-label By the grace of His beak
+                    .col-sm-12
+                        input(type="text" class="form-control" name="prayer" placeholder="thanks be to the Rooster")
 
-        .form-group
-            button.col-sm-2(type="submit" class="btn btn-default") Pray
+                .form-group
+                    button.col-sm-2(type="submit" class="btn btn-default") Pray
 
-    h3 Recent Prayers
-        .container
-            .row
-                .col-md-12
-                    ul
-                    each prayer in prayers
-                        li(class="list-group-item")= prayer.prayer
+            h3 Recent Prayers
+                .container
+                    .row
+                        .col-md-12
+                            ul.prayer-list
+                            each prayer in prayers
+                                li(class="prayer")= prayer.prayer
 

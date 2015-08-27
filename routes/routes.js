@@ -27,8 +27,6 @@ module.exports = function(app, passport) {
             user : req.user,
             roosters : JSON.parse(JSON.stringify(roosterMap))
         });
-        //console.log(roosters);
-
     });
     });
 
@@ -46,7 +44,7 @@ module.exports = function(app, passport) {
     // process the login form
     app.post('/login', passport.authenticate('local-login', {
         successRedirect : '/profile', // redirect to the secure profile section
-        failureRedirect : '/login', // redirect back to the /convert page if there is an error
+        failureRedirect : '/convert', // redirect back to the /convert page if there is an error
         failureFlash : true // allow flash messages
     }));
 
@@ -76,9 +74,20 @@ module.exports = function(app, passport) {
 
 
     app.get('/prayerwall', function(req, res, next){
-        var user = req.user;
-        console.log(user)
-        res.render('prayer', { message: req.flash('signupMessage') });
+
+        Prayer.find({}, function(err, prayers) {
+        var prayerMap = {};
+
+        prayers.forEach(function(prayer){
+            prayerMap[prayer.prayer] = prayer;
+        });
+
+        res.render('prayer', {
+            user : req.user,
+            message: req.flash('signupMessage'),
+            prayers : JSON.parse(JSON.stringify(prayerMap))
+        });
+    })
     })
 
 
@@ -87,25 +96,10 @@ module.exports = function(app, passport) {
 
         new Prayer({prayer : req.body.prayer})
         .save(function(err, prayer) {
-            res.send(prayer);
+            res.render('prayeraccept', {
+                message: req.flash('signupMessage')          
+            })
         });
-
-        
-
-        // // create a todo, information comes from AJAX request from Angular
-        // Prayer.create({
-        //     prayer : req.body.prayer
-        // }, function(err, prayer) {
-        //     if (err)
-        //         res.send(err);
-
-        //     // get and return all the todos after you create another
-        //     Prayer.find(function(err, prayer) {
-        //         if (err)
-        //             res.send(err)
-        //         res.json(prayer);
-        //     });
-        // });
 
     });
 

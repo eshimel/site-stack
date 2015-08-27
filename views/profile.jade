@@ -1,11 +1,14 @@
 extend layout
 block content
-  h1 Welcome #{user.username}
-  h2 #{user.level}
-  -if(user.level == 'Apostle')
-    p
-        include texts/apostle.txt
-  p Welcome to the church of his wingliness, The Great Rooster. 
+    .container
+      .row
+        .main-content.col-md-12  
+          h1 Welcome #{user.username}
+          h2 #{user.level}
+          -if(user.level == 'Apostle')
+            p
+                include texts/apostle.txt
+          p Welcome to the church of his wingliness, The Great Rooster. 
 
   
 

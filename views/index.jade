@@ -4,24 +4,28 @@ extend layout
 
 
 block hero
-  include includes/login
+  .container.hero
+    .row.rooster-hero
+      .header-content.col-md-12
+        include includes/login
 
 
 block content
-  -if(user)
-   h2 Hello #{user.username}
-   p 
-    include greetings.txt
-  -else
-   h2 Greetings Early Riser!
-  p
-    include texts/body.txt
-
-
-
-block sidebar
-  h3 His Apostles
-  each rooster in roosters
-    li(class="sidebar list-group-item")= rooster.username
+  .container
+    .row
+      .main-content.col-md-8
+        -if(user)
+         h2 Hello #{user.username}
+         p 
+          include greetings.txt
+        -else
+         h2 Greetings Early Riser!
+        p
+          include texts/body.txt
+      .sidebar.col-md-4
+        block sidebar
+          h3 His Apostles
+          each rooster in roosters
+            li(class="sidebar list-group-item")= rooster.username
 
 

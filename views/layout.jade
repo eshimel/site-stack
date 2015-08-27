@@ -11,18 +11,9 @@ html
     include includes/navbar
 
     header
-      .container.hero
-        .row.rooster-hero
-          .header-content.col-md-12
-            block hero
+      block hero
     body
-      .container
-        .row
-          .main-content.col-md-8
-            block content
-
-          .sidebar.col-md-4
-            block sidebar
+      block content
     
     include includes/footer
 
