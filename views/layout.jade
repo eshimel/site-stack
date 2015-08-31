@@ -19,18 +19,18 @@ html
     link(rel='stylesheet', href='stylesheets/style.css')
 
   body
-    +nav("Costa's Cleaning", "dropdown_menu")
-      +nav_item( "/") Home
-      +nav_item( "/about" ) About
-      +nav_item( "/" ) Contact
-      +nav_item_dropdown( "#" )( label="Dropdown")
-        +nav_item( "#" ) Action
-        +nav_item( "#" ) Another action
-        +nav_item( "#" ) Something else here
-        +nav_divider
-        +nav_header Nav header
-        +nav_item( "#" ) Separated link
-        +nav_item( "#" ) One more separated link
+    //+nav("Costa's Cleaning", "dropdown_menu")
+    //  +nav_item( "/") Home
+    //  +nav_item( "/about" ) About
+    //  +nav_item( "/" ) Contact
+    //  +nav_item_dropdown( "#" )( label="Dropdown")
+    //    +nav_item( "#" ) Action
+    //    +nav_item( "#" ) Another action
+    //    +nav_item( "#" ) Something else here
+    //    +nav_divider
+    //    +nav_header Nav header
+    //    +nav_item( "#" ) Separated link
+    //    +nav_item( "#" ) One more separated link
     header
       .container
         .row
@@ -55,14 +55,14 @@ html
         .contact.col-md-12
           block contact
       .row
-        .main-content.col-md-10.col-md-offset-1
+        .main-content.col-md-12
           block content
 
-      .row
-        .references.col-md-12
-          block references
-        //.sidebar.col-md-4
-        //  block sidebar
+      //.row
+      //  .references.col-md-12
+      //    block references
+      //.sidebar.col-md-4
+      //  block sidebar
     footer
       .container
         .row
@@ -70,11 +70,11 @@ html
             strong
               | Costa's Cleaning
             br
-            | 639 Address rd
+            a(class="contact-bottom" href="kc@costascleaning.com") 
+              | cleaningwithcosta@gmail.com
             br
-            | Soutwest Metro, MA, 02492
-            br
-            a(class="contact-bottom" href="mailto:somone@mail.com") incomingmail@costa.com
+            p 
+              | copyright Costa's Cleaning Services 2015
  
 
     script(src='js/scripts.js')
