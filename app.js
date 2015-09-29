@@ -1,91 +1,57 @@
-//livereload = require('express-livereload');
-var express = require('express')
-  , stylus = require('stylus')
-  , nib = require('nib')
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose'); 
+/**
+ * This is an example of a basic node.js script that performs
+ * the Authorization Code oAuth2 flow to authenticate against
+ * the Spotify Accounts.
+ *
+ * For more information, read
+ * https://developer.spotify.com/web-api/authorization-guide/#authorization_code_flow
+ */
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var express = require('express'); // Express web server framework
+var request = require('request'); // "Request" library
+var querystring = require('querystring');
+var cookieParser = require('cookie-parser');
+var passport = require('passport');
+var session = require('express-session')
+var path = require('path');
+var flash = require('connect-flash');
+
+// define the logger
+var logger = require('morgan');
+
+// pass passport for configuration
+//require('./config/passport-config')(passport); 
+var route_handler = require('./routes/index'); 
 
 var app = express();
 
-// view engine setup
+// required for passport
+
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true }))
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash()); // use connect-flash for flash messages stored in session
+
+//app.use(express.static(__dirname + '/public'));
+
+// set up for jade templating
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-//set up mongoose w/ mongo
-//mongoose.connect('mongodb://45.55.207.169:27555/test'); 
+//check user auth first
+//app.use(authChecker);
+
+// load the routes file, and pass in the passport module
+//require('./routes/passport.js')(app, passport);
+
+app.use('/', route_handler);
+
+
+console.log('Listening on 8888');
+app.listen(8888);
 
 
 
 
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 
-
-// use the static page stuffs
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', routes);
-app.use('/users', users);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
-// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
-});
-
-
-app.get('/', function(req, res){
-  res.render('index', {
-    title: 'Home'
-  });
-});
-
-app.get('/about', function(req, res){
-  res.render('about', {
-    title: 'About'
-  });
-});
-
-app.get('/searching', function(req, res){
- res.send('WHEEE');
-});
-
-
-module.exports = app;
