@@ -27,12 +27,8 @@ var url = 'http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&limit=1
 
 function getData(callback) {
     request(url, function (err, res, body) {
-        if (err) {
-          return callback(err);
-        }
-
         if (!err && res.statusCode == 200) {
-          console.log(body); // Show the HTML for the Google homepage.
+          console.log('getData called on body: ' + typeof body); // Show the HTML for the Google homepage.
           callback(null, res.body);
         } else {
           callback(res.statusCode);
@@ -47,7 +43,11 @@ router.get('/', function(req, res, next) {
       if (err) {
         return next(err);
       }
-      res.render('index', {title: 'Home', data: data });
+      console.log('data coming back to router: ' + typeof data);
+      var jdata = JSON.parse(data);
+      console.log('after conversion: ' + typeof jdata);
+      console.log(jdata.recenttracks.track[0].name);
+      res.render('index', {title: 'Home', data: jdata });
     });
 });
 
@@ -57,7 +57,6 @@ router.get('/', function(req, res, next) {
 router.get('/sample', function(req, res, next) {
   res.send('pancakes!');
 });
-
 
 
 

@@ -1,7 +1,12 @@
 extends layout
 
+var jdata = JSON.parse( !{JSON.stringify(data)} );
+
 block content
   h1
     | This is the index page
-  pre #{data}
-  
+
+  - if (typeof(data) === 'undefined'){
+    p This object is undefined
+  -}
+  pre #{data.recenttracks.track[0].name}
