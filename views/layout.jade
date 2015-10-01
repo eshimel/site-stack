@@ -19,14 +19,10 @@ html
     link(rel='stylesheet', href='stylesheets/style.css')
 
   body
-
-    -if(user)
-      h1
-        | #{user.id}
-    -else
-      h1
-        | No user
-
-    div
-      block content
+    .container
+      .row
+        .col-md-12
+          h1 SweetBasil.music
+      .row
+        block content
 

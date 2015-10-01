@@ -1,5 +1,9 @@
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,600,300|Quicksand");
 @import url("https://fonts.googleapis.com/css?family=Lato:900|Open+Sans:400,300,300italic");
+@font-face {
+  font-family: 'archive-tilt'; /*a name to be used later*/
+  src: url("../fonts/archive-tilt.otf"); /*URL to font*/
+}
 /*
  * Store the main color and
  * background color as variables
@@ -7,161 +11,28 @@
 body,
 html {
   margin: 0;
-  overflow: hidden;
   height: 100%;
-  background-color: #f2e863;
+  background-color: #31c3ff;
 }
-.navbar {
-  font-family: 'Quicksand';
-  margin-bottom: 0;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-  border: none;
+body h1,
+html h1 {
+  font-size: 8em;
+  font-family: archive-tilt;
+  text-shadow: 5px 5px 5px #888;
 }
-.navbar .navbar-nav a:link,
-.navbar .navbar-nav a:visited,
-.navbar .navbar-nav a:active {
-  color: #fff;
-}
-.navbar a:link,
-.navbar a:visited,
-.navbar a:active {
-  color: #fff;
-}
-.navbar-default {
-  color: #faf9f0;
-  background-color: #4998f2;
-}
-.btn-group .btn-default {
-  border: none;
-}
-.estimate-btn,
-.contact-btn {
-  position: relative;
-  background-color: #4998f2;
-  color: #fff;
-  font-size: 20px;
-  text-align: left;
-  border: none;
-}
-.contact-btn {
-  left: -13px;
-}
-.contact-btn .glyphicon {
-  top: 3px;
-}
-@media (min-width: 768px) {
-  #left {
-    color: #61e8e1;
-    position: absolute;
-    top: 0px;
-    bottom: 0;
-    left: 0;
-    width: 25%;
-    overflow-y: scroll;
-    height: 100vh;
-    margin: 0;
-    border-bottom: 1px solid #0f68ce;
-    text-shadow: 0px -1px 0px #0f68ce;
-  }
-  #right {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    overflow-y: scroll;
-    width: 75%;
-    margin: 0;
-  }
-}
-#left {
-  background-color: #f2e863;
-  height: 100%;
-}
-#right {
-  height: 100%;
-  background-color: #f25757;
-}
-.left-menu {
-  width: 100%;
-  top: 10%;
-  text-align: right;
-  font-family: 'Lato';
-  padding: 10px;
-}
-@media screen and (min-width: 420px) {
-  .left-menu h1 {
-    font-family: 'Lato';
-    font-size: 4vw;
-  }
-  .left-menu h2 {
-    font-size: 2vw;
-    font-family: 'Open Sans';
-    font-weight: 300;
-  }
-}
-@media screen and (max-width: 420px) {
-  .left-menu h1 {
-    font-family: 'Lato';
-    font-size: 14vw;
-  }
-  .left-menu h2 {
-    font-size: 10vw;
-    font-family: 'Open Sans';
-    font-weight: 300;
-  }
-}
-.main-content {
-  font-family: 'Lato';
-  top: 25%;
-  padding: 0 15px 10px 15px;
-}
-.contact {
-  font-family: 'Quicksand';
-  font-size: 3vw;
-  background-color: #4998f2;
-  color: #faf9f0;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  padding: 8px;
-  text-align: center;
-  margin-bottom: 20px;
-  text-shadow: 0px -1px 0px #0f68ce;
-}
-.contact h2 {
-  margin: 10px;
-  line-height: 150%;
-}
-.number {
-  font-family: 'Quicksand';
-  background-color: #faf9f0;
-  main-color: #4998f2;
-  color: #4998f2;
+.track {
+  background-color: #ff9e31;
+  float: left;
+  margin: 5px;
+  width: 23%;
   padding: 5px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-}
-.container {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-p {
-  line-height: 1.8;
-}
-footer {
-  background-color: #424242;
-  color: #faf9f0;
-  height: 200px;
-  padding-top: 20px;
-  margin-top: 50px;
-  border-top: 1px dotted #ccc;
-  font-size: 13px;
-}
-footer .contact-bottom:link,
-footer .contact-bottom:visited,
-footer .contact-bottom:active {
-  color: #fff;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  font-family: 'Open Sans', 'sans-serif';
+  font-weight: bold;
+  color: colo1;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  list-style-type: none;
+  -webkit-box-shadow: 5px 5px 5px #888;
+  box-shadow: 5px 5px 5px #888;
 }

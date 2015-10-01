@@ -1,12 +1,10 @@
 extends layout
 
-var jdata = JSON.parse( !{JSON.stringify(data)} );
-
 block content
-  h1
-    | This is the index page
-
-  - if (typeof(data) === 'undefined'){
-    p This object is undefined
-  -}
-  pre #{data.recenttracks.track[0].name}
+  .col-md-12
+    h2 Recent Tracks
+    ul
+      each val in data.recenttracks.track
+        li.track
+          h3= val.name
+          h5= val.artist['#text']
