@@ -1,6 +1,10 @@
 extends layout
 
 
+block title
+  +titleColors('sweetbasil.music')
+
+
 block content
   -var tracks = data.recenttracks.track
   ul.track-list
@@ -8,30 +12,44 @@ block content
       +highlightTrack(track)
 
 block side
-  .side
+  #sticky-anchor
+  .side.sticky
     h2 Beta 0.0.2
     p
       | Welcome to Sweet Basil. Browse tracks recently played. More features coming soon, leave any feedback at blah@blah.com
 
+    
+    h2 Missing Art...Art
+    img(src="images/cat.jpg")
+    p 
+      | Sometimes we won't have a picture. When that happens you'll see the image below. The name of the artist and how to contact them can be found below.
+    br
+    h5 Cat & Pumpkin
+    p paper, pen & ink, 2015
+    h6 Ashley Holzwazzer ( ahhhdraws@whatever.com )
 
 
 
+mixin titleColors(text)
+  -var message = text;
+  -var colors = new Array("#114B3A","#336D2B","#DCB549","#E2622E","#CF4222"); // red, green, blue
+  h1.title
+    -for (var i = 0; i < message.length; i++)
+      span(style="color:" + colors[(i % colors.length)] + ";")= message[i]
 
 
 mixin highlightTrack( track )
   -if(track["@attr"])
     li.track.now-playing
       +albumArt(track.image[3])
-      .info
-        h1= track.name
-        h3= track.artist["#text"]
+      h1= track.name
+      h3= track.artist["#text"]
   -else
     li.track
       +albumArt(track.image[3])
-      .info
-        h2= track.name
-        h4= track.artist["#text"]
-        p #{moment.unix(track.date["uts"]).fromNow()}
+      h2= track.name
+      h4= track.artist["#text"]
+      p #{moment.unix(track.date["uts"]).fromNow()}
 
 mixin albumArt( image )
   -if(!image["#text"])

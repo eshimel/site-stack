@@ -1,6 +1,7 @@
 
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,600,300|Quicksand')
-@import url('https://fonts.googleapis.com/css?family=Lato:900|Open+Sans:400,300,300italic')
+//@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,600,300|Quicksand')
+//@import url('https://fonts.googleapis.com/css?family=Lato:900|Open+Sans:400,300,300italic')
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:700,300|Work+Sans:400,200');
 
 @font-face {
     font-family: 'archive-tilt'; /*a name to be used later*/
@@ -13,9 +14,12 @@
 
 
 
-quicksand = 'Quicksand'
-open-sans = 'Open Sans'
-lato = 'Lato'
+//quicksand = 'Quicksand'
+//open-sans = 'Open Sans'
+//lato = 'Lato'
+
+roboto = 'Roboto Slab', serif
+work-sans = 'Work Sans', sans-serif
 archive = 'archive-tilt'
 
 small = 'screen and (max-width: 420px)'
@@ -49,48 +53,92 @@ body, html
   height 100%
   background-color color3
   background-image url('../images/bg.png')
+  background-attachment fixed
   
-
-.title
-  color color5
-  font-size 8em
-  font-family archive-tilt
-
-.info
-  h1
-    font-family open-sans
-    
-  h3
-    font-family open-sans
-
-.side
-  color white
-
+p
+  font-family work-sans
   
-.track-list
-  padding none
-  margin none
-
+li, ol
+  display: inline
+  
 .box
   background-color white
   //float left
   margin 5px
   margin-bottom 15px
   width 100%
-  height 100px
   padding 5px
+  box-shadow 5px 0 5 #444
+  display inline-block
+  box-shadow 0 5px 7px #aaa
+
+
+.title
+  color white
+  font-size 8em
+  font-family archive-tilt
+  shadow-stroke white
+
+.track-titles
+  h1, h2
+    font-family roboto
+    
+  h3, h4
+    font-family work-sans
+
+.side
+  @extend .box
+  color black
+  
+  img
+    width 100%
+  
+  h2
+    font-family roboto
+
+.sticky.stick
+  position fixed
+  top: 0;
+  z-index: 10000;
+  
+  
+.art
+  p
+    font-size 1em
+  img
+    margin-right 3px
+    float left
+    width 40%
+
+  
+.track-list
+  padding none
+  margin none
+
+
 
 .track
   @extend .box
+  @extend .track-titles
   color black
   text-shadow 0 1px 2px rgba(black,.15)
   list-style-type none
   
+  @media(min-width:767px){
+    height 100px
+  }
+  
+
   
   img
     float left
     height 100%
-    margin-right 10px
+    margin-right 15px
+  
+    @media(max-width:767px){
+      width 100%
+    }  
+
 
 
 

@@ -1,5 +1,4 @@
-@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,600,300|Quicksand");
-@import url("https://fonts.googleapis.com/css?family=Lato:900|Open+Sans:400,300,300italic");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:700,300|Work+Sans:400,200");
 @font-face {
   font-family: 'archive-tilt'; /*a name to be used later*/
   src: url("../fonts/archive-tilt.otf"); /*URL to font*/
@@ -20,7 +19,7 @@ h4,
 h5,
 h6 {
   margin: 0;
-  font-familiy: 'Open Sans';
+  font-familiy: open-sans;
 }
 body,
 html {
@@ -28,34 +27,77 @@ html {
   height: 100%;
   background-color: #31c3ff;
   background-image: url("../images/bg.png");
+  background-attachment: fixed;
 }
-.title {
-  color: #ff9e31;
-  font-size: 8em;
-  font-family: archive-tilt;
+p {
+  font-family: 'Work Sans', sans-serif;
 }
-.info h1 {
-  font-family: 'Open Sans';
-}
-.info h3 {
-  font-family: 'Open Sans';
-}
-.side {
-  color: #fff;
-}
-.track-list {
-  padding: none;
-  margin: none;
+li,
+ol {
+  display: inline;
 }
 .box,
+.side,
 .track,
 .now-playing {
   background-color: #fff;
   margin: 5px;
   margin-bottom: 15px;
   width: 100%;
-  height: 100px;
   padding: 5px;
+  -webkit-box-shadow: 5px 0 5 #444;
+  box-shadow: 5px 0 5 #444;
+  display: inline-block;
+  -webkit-box-shadow: 0 5px 7px #aaa;
+  box-shadow: 0 5px 7px #aaa;
+}
+.title {
+  color: #fff;
+  font-size: 8em;
+  font-family: archive-tilt;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+.track-titles h1,
+.track h1,
+.now-playing h1,
+.track-titles h2,
+.track h2,
+.now-playing h2 {
+  font-family: 'Roboto Slab', serif;
+}
+.track-titles h3,
+.track h3,
+.now-playing h3,
+.track-titles h4,
+.track h4,
+.now-playing h4 {
+  font-family: 'Work Sans', sans-serif;
+}
+.side {
+  color: #000;
+}
+.side img {
+  width: 100%;
+}
+.side h2 {
+  font-family: 'Roboto Slab', serif;
+}
+.sticky.stick {
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+}
+.art p {
+  font-size: 1em;
+}
+.art img {
+  margin-right: 3px;
+  float: left;
+  width: 40%;
+}
+.track-list {
+  padding: none;
+  margin: none;
 }
 .track,
 .now-playing {
@@ -63,11 +105,23 @@ html {
   text-shadow: 0 1px 2px rgba(0,0,0,0.15);
   list-style-type: none;
 }
+@media (min-width: 767px) {
+  .track,
+  .now-playing {
+    height: 100px;
+  }
+}
 .track img,
 .now-playing img {
   float: left;
   height: 100%;
-  margin-right: 10px;
+  margin-right: 15px;
+}
+@media (max-width: 767px) {
+  .track img,
+  .now-playing img {
+    width: 100%;
+  }
 }
 .now-playing {
   height: 300px;

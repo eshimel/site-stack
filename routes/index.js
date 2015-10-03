@@ -33,6 +33,7 @@ fs.readFile('test/test-data.js', 'utf8', function (err, data) {
 //
 
 var recentTracksUrl = 'http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&limit=20&user=ianpants&api_key=57ee3318536b23ee81d6b27e36997cde&format=json';
+var trackInfoUrl = 'http://ws.audioscrobbler.com/2.0/?method=track.getInfo&mbid=a44b0930-87a7-49ed-920c-3fcabc889eac&api_key=57ee3318536b23ee81d6b27e36997cde&format=json';
 
 
 // logging middleware for debug

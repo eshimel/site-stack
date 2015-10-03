@@ -12,7 +12,7 @@ html
     
 
     // js imports
-    //script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js')
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js')
     
     script(src="/bower_components/jquery/dist/jquery.min.js")
     //script(src="/bower_components/masonry/dist/masonry.pkgd.js")
@@ -27,11 +27,20 @@ html
     .container
       .row
         .col-md-12
-          h1.title SweetBasil.music
+          block title
+            
       .row
         .col-md-8
           block content
         .col-md-4
           block side
       script(src='js/scripts.js')
+
+
+
+
+
+
+
+
 
