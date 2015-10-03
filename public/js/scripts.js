@@ -1,9 +1,14 @@
-$.ajax({
-    url: "/",
-    success: function(data){
-        $('body').load('/site/pages/about.html body');
-    }
-});
+//$.ajax({
+//    url: "/",
+//    success: function(data){
+//        $('body').load('/site/pages/about.html body');
+//    }
+//});
+
+//$('.grid').masonry({
+//  // options... 
+//  itemSelector: '.grid-item'
+//});
 
 
 function buttonClick(e) {

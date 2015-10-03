@@ -1,10 +1,42 @@
 extends layout
 
+
 block content
-  .col-md-12
-    h2 Recent Tracks
-    ul
-      each val in data.recenttracks.track
-        li.track
-          h3= val.name
-          h5= val.artist['#text']
+  -var tracks = data.recenttracks.track
+  ul.track-list
+    for track in tracks
+      +highlightTrack(track)
+
+block side
+  .side
+    h2 Beta 0.0.2
+    p
+      | Welcome to Sweet Basil. Browse tracks recently played. More features coming soon, leave any feedback at blah@blah.com
+
+
+
+
+
+
+mixin highlightTrack( track )
+  -if(track["@attr"])
+    li.track.now-playing
+      +albumArt(track.image[3])
+      .info
+        h1= track.name
+        h3= track.artist["#text"]
+  -else
+    li.track
+      +albumArt(track.image[3])
+      .info
+        h2= track.name
+        h4= track.artist["#text"]
+        p #{moment.unix(track.date["uts"]).fromNow()}
+
+mixin albumArt( image )
+  -if(!image["#text"])
+    img(src="images/cat.jpg")
+  -else
+    img(src=image['#text'])
+
+

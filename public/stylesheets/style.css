@@ -8,31 +8,67 @@
  * Store the main color and
  * background color as variables
  */
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-familiy: 'Open Sans';
+}
 body,
 html {
   margin: 0;
   height: 100%;
   background-color: #31c3ff;
+  background-image: url("../images/bg.png");
 }
-body h1,
-html h1 {
+.title {
+  color: #ff9e31;
   font-size: 8em;
   font-family: archive-tilt;
-  text-shadow: 5px 5px 5px #888;
 }
-.track {
-  background-color: #ff9e31;
-  float: left;
+.info h1 {
+  font-family: 'Open Sans';
+}
+.info h3 {
+  font-family: 'Open Sans';
+}
+.side {
+  color: #fff;
+}
+.track-list {
+  padding: none;
+  margin: none;
+}
+.box,
+.track,
+.now-playing {
+  background-color: #fff;
   margin: 5px;
-  width: 23%;
+  margin-bottom: 15px;
+  width: 100%;
+  height: 100px;
   padding: 5px;
-  font-size: 1.5em;
-  margin-bottom: 10px;
-  font-family: 'Open Sans', 'sans-serif';
-  font-weight: bold;
-  color: colo1;
+}
+.track,
+.now-playing {
+  color: #000;
   text-shadow: 0 1px 2px rgba(0,0,0,0.15);
   list-style-type: none;
-  -webkit-box-shadow: 5px 5px 5px #888;
-  box-shadow: 5px 5px 5px #888;
+}
+.track img,
+.now-playing img {
+  float: left;
+  height: 100%;
+  margin-right: 10px;
+}
+.now-playing {
+  height: 300px;
 }

@@ -36,47 +36,69 @@ color3 = #31C3FF; //rgba(242, 87, 87, 100)
 color4 = #B25F00; //rgba(242, 232, 99, 100)
 color5 = #FF9E31; //rgba(242, 205, 96, 100)
 
+ul, ol
+  margin 0
+  padding 0
 
+h1, h2, h3, h4, h5, h6
+  margin 0
+  font-familiy open-sans
 
 body, html 
   margin 0
   height 100%
   background-color color3
+  background-image url('../images/bg.png')
   
-  h1
-    font-size 8em
-    font-family archive-tilt
-    text-shadow 5px 5px 5px #888
 
+.title
+  color color5
+  font-size 8em
+  font-family archive-tilt
+
+.info
+  h1
+    font-family open-sans
+    
+  h3
+    font-family open-sans
+
+.side
+  color white
+
+  
+.track-list
+  padding none
+  margin none
+
+.box
+  background-color white
+  //float left
+  margin 5px
+  margin-bottom 15px
+  width 100%
+  height 100px
+  padding 5px
 
 .track
-  background-color color5
-  float left
-  margin 5px
-  width 23%
-  padding 5px
-  font-size 1.5em
-  margin-bottom 10px
-  font-family open-sans,'sans-serif'
-  font-weight bold
-  color colo1
+  @extend .box
+  color black
   text-shadow 0 1px 2px rgba(black,.15)
   list-style-type none
-  box-shadow 5px 5px 5px #888
+  
+  
+  img
+    float left
+    height 100%
+    margin-right 10px
+
+
+
+.now-playing
+  @extend .track
+  height 300px
   
   
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-  

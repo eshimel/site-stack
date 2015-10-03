@@ -21,12 +21,14 @@ var flash = require('connect-flash');
 
 
 
+
+
 // pass passport for configuration
 //require('./config/passport-config')(passport); 
 var route_handler = require('./routes/index'); 
 
 var app = express();
-
+app.locals.moment = require('moment');
 // required for passport
 
 app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true }));
@@ -36,6 +38,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 // use the static page stuffs
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
 //app.use(express.static(__dirname + '/public'));
 

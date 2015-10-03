@@ -1,0 +1,26 @@
+extends layout
+
+
+
+block content
+
+  -var tracks = data.recenttracks.track
+
+  .col-md-8
+    .row
+      ul.track-list
+        for track in tracks
+          +highlightTrack(track)
+
+
+
+mixin highlightTrack( track )
+  -if(track["@attr"])
+    li.track.now-playing
+      h1= track.name
+      h3= track.artist["#text"]
+  -else
+    li.track
+      h1= track.name
+      h3= track.artist["#text"]
+      h4 #{moment.unix(track.date["uts"]).format("MM/DD/YYYY")}
