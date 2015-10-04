@@ -17,12 +17,12 @@ var router = express.Router();
 
 
 
-var obj;
-fs.readFile('test/test-data.js', 'utf8', function (err, data) {
-  if (err) throw err;
-  console.log(data);
-  obj = JSON.parse(data);
-});
+//var obj;
+//fs.readFile('test/test-data.js', 'utf8', function (err, data) {
+//  if (err) throw err;
+//  console.log(data);
+//  obj = JSON.parse(data);
+//});
 
 
 
@@ -71,16 +71,16 @@ router.get('/', function( req, res, next ) {
     });
 });
 
-router.get('/test', function( req, res, next ) {
-  getRecentTracks(function (err, data) {
-      if (err) {
-        return next(err);
-      }
-      //var jdata = JSON.parse(data);
-      //console.log(data);
-      res.render('test', {title: 'Home', data: JSON.parse(data) });
-    });
-});
+//router.get('/test', function( req, res, next ) {
+//  getRecentTracks(function (err, data) {
+//      if (err) {
+//        return next(err);
+//      }
+//      //var jdata = JSON.parse(data);
+//      //console.log(data);
+//      res.render('test', {title: 'Home', data: JSON.parse(data) });
+//    });
+//});
 
 
 module.exports = router;
