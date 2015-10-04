@@ -2,7 +2,7 @@ extends layout
 
 
 block title
-  +titleColors('sweetbasil.music')
+  +titleColors('sweet basil radio')
 
 
 block content
@@ -14,15 +14,15 @@ block content
 block side
   #sticky-anchor
   .side.sticky
-    h2 Beta 0.0.2
+    h2 Beta 0.0.3
     p
       | Welcome to Sweet Basil. Browse tracks recently played. More features coming soon, leave any feedback at blah@blah.com
 
-    
-    h2 Missing Art...Art
+  .side
+    h2.art-title Missing Art...Art
     img(src="images/cat.jpg")
     p 
-      | Sometimes we won't have a picture. When that happens you'll see the image below. The name of the artist and how to contact them can be found below.
+      | Sometimes we won't have a picture. It happens. When it does you'll see this picture. The name of the artist and how to contact them can be found below. Happy Halloween!
     br
     h5 Cat & Pumpkin
     p paper, pen & ink, 2015
@@ -31,25 +31,27 @@ block side
 
 
 mixin titleColors(text)
-  -var message = text;
+  -var message = text; 
   -var colors = new Array("#114B3A","#336D2B","#DCB549","#E2622E","#CF4222"); // red, green, blue
   h1.title
     -for (var i = 0; i < message.length; i++)
-      span(style="color:" + colors[(i % colors.length)] + ";")= message[i]
+      span(style="color:" + colors[Math.floor((Math.random() * colors.length))] + ";")= message[i]
 
 
 mixin highlightTrack( track )
   -if(track["@attr"])
+    h1.box.recent Current Track
     li.track.now-playing
       +albumArt(track.image[3])
       h1= track.name
-      h3= track.artist["#text"]
+      h3= "by " + track.artist["#text"]
+    h1.box.recent Past Tracks
   -else
     li.track
       +albumArt(track.image[3])
       h2= track.name
-      h4= track.artist["#text"]
-      p #{moment.unix(track.date["uts"]).fromNow()}
+      h4= "by " + track.artist["#text"]
+      p.time #{moment.unix(track.date["uts"]).fromNow()}
 
 mixin albumArt( image )
   -if(!image["#text"])
