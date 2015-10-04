@@ -53,7 +53,8 @@ ol {
 }
 .title {
   color: #fff;
-  font-size: 8em;
+  font-size: 13vw;
+  width: 100%;
   font-family: archive-tilt;
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
