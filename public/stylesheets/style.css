@@ -26,7 +26,7 @@ html {
   margin: 0;
   height: 100%;
   background-color: #31c3ff;
-  background-image: url("../images/bg.png");
+  background-image: url("../images/bg4.png");
   background-attachment: fixed;
 }
 p {
@@ -53,10 +53,15 @@ ol {
 }
 .title {
   color: #fff;
-  font-size: 11vw;
+  font-size: 20vw;
   width: 100%;
   font-family: archive-tilt;
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+@media (min-width: 767px) {
+  .title {
+    font-size: 11vw;
+  }
 }
 .track-titles h1,
 .track h1,
