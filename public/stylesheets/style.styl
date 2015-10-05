@@ -65,17 +65,12 @@ p
 li, ol
   display: inline
   
-.box
-  background-color white
-  //float left
-  margin 5px
-  margin-bottom 15px
-  width 100%
-  padding 5px
-  box-shadow 5px 0 5 #444
-  display inline-block
-  box-shadow 0 5px 7px #aaa
 
+/*
+
+Title css
+
+*/
 
 .title
   color white
@@ -88,47 +83,31 @@ li, ol
     font-size 11vw
   }
 
+/*
+
+Track css
+
+*/
+  
 .track-titles
   h1, h2
     font-family roboto
     
   h3, h4
     font-family work-sans
-
-.side
-  @extend .box
-  color black
-  padding 15px
   
-  img
-    width 100%
-  
-  h2
-    font-family roboto
+.box
+  background-color white
+  //float left
+  margin 5px
+  margin-bottom 15px
+  width 100%
+  padding 5px
+  box-shadow 5px 0 5 #444
+  display inline-block
+  box-shadow 0 5px 7px #aaa
 
-.sticky.stick
-  position fixed
-  top: 0;
-  z-index: 10000;
-  
-  
-.art
-  p
-    font-size 1em
-  img
-    margin-right 3px
-    float left
-    width 40%
-
-  
-.track-list
-  padding none
-  margin none
-
-
-
-.track
-  @extend .box
+.box__track
   @extend .track-titles
   color black
   text-shadow 0 1px 2px rgba(black,.15)
@@ -147,19 +126,52 @@ li, ol
       width 100%
     }
     
-
-
-.art-title
-  margin-bottom 15px
-
-.now-playing
-  @extend .track 
+.box__info
+  font-family roboto
+    
+.box__nowPlaying
+  @extend .box__track 
   @media(min-width:767px){
     height 300px
   }
+
+
+
+
+
+.side
+  @extend .box
+  color black
+  padding 10px
+  
+  img
+    width 100%
+    margin-bottom 10px
+  
+  h2
+    font-family roboto
+    margin-bottom 10px
+  
+.side__art
+  p
+    font-size 1em
+  img
+    margin-right 3px
+    float left
+    width 40%
+
+  
+.track-list
+  padding none
+  margin none
+
+
+
+  margin-bottom 15px
+
+
     
-.recent
-  font-family roboto
+
   
 .time
   margin-top 5px
