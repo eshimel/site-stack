@@ -1,3 +1,7 @@
+/*global $:false */
+'use strict'
+
+
 //$.ajax({
 //    url: "/",
 //    success: function(data){
@@ -53,6 +57,17 @@ $(document).ready(function(){
 });
 
 
+$('.box__track').hide();
+
+$('#current').click( function() {
+  $('.box.box__track.box__nowPlaying').show();
+});
+
+
+
+$('#current').on('click', function(){
+    $('.box_nowPlaying').show();
+});
 
 
 
@@ -63,7 +78,7 @@ $(function(){
        $.get( '/searching',parameters, function(data) {
         $('#whatevr').html(data);
      });
-    };
+    }
  });
 });
 

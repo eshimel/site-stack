@@ -31,6 +31,13 @@ block side
 
 
 
+
+
+
+
+
+
+
 mixin titleColors(text)
   -var message = text; 
   -var colors = new Array("#114B3A","#336D2B","#DCB549","#E2622E","#CF4222"); // red, green, blue
@@ -41,7 +48,7 @@ mixin titleColors(text)
 
 mixin highlightTrack( track )
   -if(track["@attr"])
-    h1.box.box__info Current Track
+    h1#current.box.box__info Current Track
     li.box.box__track.box__nowPlaying
       +albumArt(track.image[3])
       h1= track.name
