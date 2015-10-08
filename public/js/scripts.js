@@ -58,7 +58,7 @@ $(document).ready(function(){
 
 
 $('.box').click( function() {
-  $(this).toggleClass('box--grow');
+  $(this).toggleClass('box--grow', 300);
 });
 
 

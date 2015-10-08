@@ -28,9 +28,11 @@ var flash = require('connect-flash');
 var route_handler = require('./routes/index'); 
 
 var app = express();
-app.locals.moment = require('moment');
-// required for passport
 
+/* Time keeping tool */
+app.locals.moment = require('moment');
+
+// required for passport
 app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -38,9 +40,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 // use the static page stuffs
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/bower_components',  express.static(__dirname + '/bower_components'));
-
-//app.use(express.static(__dirname + '/public'));
+app.use('/bower_components',  express.static(path.join(__dirname + '/bower_components')));
 
 // set up for jade templating
 app.set('views', path.join(__dirname, 'views'));
