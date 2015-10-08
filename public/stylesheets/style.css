@@ -86,11 +86,6 @@ Track css
   display: inline-block;
   -webkit-box-shadow: 0 5px 7px #aaa;
   box-shadow: 0 5px 7px #aaa;
-  -webkit-transition: width 0.5s, height 0.5s;
-  -moz-transition: width 0.5s, height 0.5s;
-  -o-transition: width 0.5s, height 0.5s;
-  -ms-transition: width 0.5s, height 0.5s;
-  transition: width 0.5s, height 0.5s;
 }
 .box__track,
 .box__nowPlaying {
