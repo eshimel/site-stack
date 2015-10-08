@@ -57,17 +57,18 @@ $(document).ready(function(){
 });
 
 
-$('.box__track').hide();
 
-$('#current').click( function() {
-  $('.box.box__track.box__nowPlaying').show();
+$('.box').click( function() {
+  $(this).toggleClass('box--grow');
 });
 
 
+//$('.box__track').hide();
 
-$('#current').on('click', function(){
-    $('.box_nowPlaying').show();
-});
+//$('#current').click( function() {
+//  $('.box.box__track.box__nowPlaying').show();
+//  $('.box.box__track').show().animate(300);
+//});
 
 
 

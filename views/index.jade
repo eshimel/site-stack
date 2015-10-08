@@ -48,7 +48,7 @@ mixin titleColors(text)
 
 mixin highlightTrack( track )
   -if(track["@attr"])
-    h1#current.box.box__info Current Track
+    h1.box.box__info Current Track
     li.box.box__track.box__nowPlaying
       +albumArt(track.image[3])
       h1= track.name
