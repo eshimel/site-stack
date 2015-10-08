@@ -12,8 +12,6 @@
 //@import 'mixins/strap'
 //@import 'bootstrap'
 
-
-
 //quicksand = 'Quicksand'
 //open-sans = 'Open Sans'
 //lato = 'Lato'
@@ -106,7 +104,7 @@ Track css
   box-shadow 5px 0 5 #444
   display inline-block
   box-shadow 0 5px 7px #aaa
-  transition height .5s ease
+  //transition height .5s ease
   
 
 
@@ -139,8 +137,11 @@ Track css
   }
 
 .box--grow
-  height 250px 
-
+  position absolute
+  top 0
+  left 0
+  z-index 1001
+  margin auto
 
 
 .side
@@ -168,9 +169,6 @@ Track css
 .track-list
   padding none
   margin none
-
-
-
   margin-bottom 15px
 
 
@@ -181,5 +179,3 @@ Track css
   margin-top 5px
   font-size .8em
   font-weight light
-
-

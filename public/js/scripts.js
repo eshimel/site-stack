@@ -1,6 +1,8 @@
 /*global $:false */
 'use strict'
 
+var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
 
 //$.ajax({
 //    url: "/",
@@ -57,9 +59,11 @@ $(document).ready(function(){
 });
 
 
-$('.box').click( function() {
-  $(this).toggleClass('box--grow', 0);
-});
+//$('.box').click( function() {
+//  $(this).toggleClass('box--grow', 0);
+//  $(this).css('width', w * .9);
+//  $(this).css('height', w * .9);
+//});
 
 
 //$('.box__track').hide();
