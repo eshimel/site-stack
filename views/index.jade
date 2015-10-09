@@ -1,11 +1,18 @@
 extends layout
 
 
+
+
+
 block title
   +titleColors('sweet basil radio')
 
 
 block content
+  
+  #slide.box.box__track.box--offside
+    h2 Soemthing
+
   -var tracks = data.recenttracks.track
   ul.track-list
     for track in tracks
@@ -14,11 +21,9 @@ block content
 
 block side
   #sticky-anchor
-  .side.sticky
-    h2 Beta 0.1.1
-    p
-      | Welcome to Sweet Basil. Browse tracks recently played. More features coming soon, leave any feedback at #[a(href="mailto:ian.cullinane@gmail.com") ian.cullinane@gmail.com]
-
+  //.side
+  //  h2 Welcome to Sweet Basil Radio
+  
   .side.side_art
     h2 Missing Art...Art
     img(src="images/cat.jpg")
@@ -28,6 +33,12 @@ block side
     h4 Cat & Pumpkin
     p paper, pen & ink 2015
     h6 by Ashley Holzwazzer ( #[a(href="https://instagram.com/ahhdraws/") ahhhdraws at instagram] )
+
+  .side.sticky
+    h2 Beta 0.1.2
+    p
+      | Welcome to Sweet Basil. Browse tracks recently played. More features coming soon, leave any feedback at #[a(href="mailto:ian.cullinane@gmail.com") ian.cullinane@gmail.com]
+
 
 
 
@@ -48,7 +59,7 @@ mixin titleColors(text)
 
 mixin highlightTrack( track )
   -if(track["@attr"])
-    h1.box.box__info Current Track
+    h1#current.box.box__info Current Track
     li.box.box__track.box__nowPlaying
       +albumArt(track.image[3])
       h1= track.name

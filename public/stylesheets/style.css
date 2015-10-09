@@ -75,7 +75,8 @@ Track css
   font-family: 'Work Sans', sans-serif;
 }
 .box,
-.side {
+.side,
+.slide-panel {
   background-color: #fff;
   margin: 5px;
   margin-bottom: 15px;
@@ -86,6 +87,11 @@ Track css
   display: inline-block;
   -webkit-box-shadow: 0 5px 7px #aaa;
   box-shadow: 0 5px 7px #aaa;
+}
+.box transition height .5s ease,
+.side transition height .5s ease,
+.slide-panel transition height .5s ease {
+  top: 0.5s ease, left 0.5s ease, right 0.5s ease, bottom 0.5s ease;
 }
 .box__track,
 .box__nowPlaying {
@@ -119,12 +125,29 @@ Track css
     height: 300px;
   }
 }
-.box--grow {
+.box--offside {
+  position: fixed !important;
   position: absolute;
   top: 0;
-  left: 0;
-  z-index: 1001;
+  right: 0;
+  bottom: 0;
+  left: 2000px;
   margin: auto;
+  z-index: 9001;
+  width: 90vw;
+  height: 90vh;
+}
+.box--grow {
+  position: fixed !important;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  z-index: 9001;
+  width: 90vw;
+  height: 90vh;
 }
 .side {
   color: #000;

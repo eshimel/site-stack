@@ -104,7 +104,12 @@ Track css
   box-shadow 5px 0 5 #444
   display inline-block
   box-shadow 0 5px 7px #aaa
-  //transition height .5s ease
+  transition height .5s ease, 
+    //width .5s ease,
+    top .5s ease,
+    left .5s ease,
+    right .5s ease,
+    bottom .5s ease
   
 
 
@@ -136,13 +141,31 @@ Track css
     height 300px
   }
 
-.box--grow
-  position absolute
-  top 0
-  left 0
-  z-index 1001
-  margin auto
 
+  
+.box--offside
+  position:fixed !important;
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:2000px;
+  margin auto
+  z-index 9001
+  width: 90vw;
+  height: 90vh;
+  
+.box--grow
+  position:fixed !important;
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  margin auto
+  z-index 9001
+  width: 90vw;
+  height: 90vh;
 
 .side
   @extend .box
@@ -172,7 +195,9 @@ Track css
   margin-bottom 15px
 
 
-    
+.slide-panel
+  @extend .box
+  //transform: translate(-150%);
 
   
 .time

@@ -13,28 +13,62 @@ var logger = require('morgan');
 // the Router subclass to be exported
 var router = express.Router();
 
-//var Article = require('../models/article');
+var lastfm = {
+  url: "http://ws.audioscrobbler.com/2.0/",
+  method: "artist.getInfo",
+  artist: "Jenny Wilson",
+  api_key: "57ee3318536b23ee81d6b27e36997cde"
 
-
-
-//var obj;
-//fs.readFile('test/test-data.js', 'utf8', function (err, data) {
-//  if (err) throw err;
-//  console.log(data);
-//  obj = JSON.parse(data);
-//});
-
-
-
-/* GET home page. */
-//router.get('/', function(req, res, next) {
-//  res.render('spot-user', { user: req.user });
-//});
-//
+}
 
 var recentTracksUrl = 'http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&limit=20&user=ianpants&api_key=57ee3318536b23ee81d6b27e36997cde&format=json';
 var trackInfoUrl = 'http://ws.audioscrobbler.com/2.0/?method=track.getInfo&mbid=a44b0930-87a7-49ed-920c-3fcabc889eac&api_key=57ee3318536b23ee81d6b27e36997cde&format=json';
 
+//var url = lastfm['url']+'?'+lastfm['method'];
+var url;
+
+
+//for (var key in lastfm) {
+//  if (lastfm.hasOwnProperty(key)) {
+//    console.log(key + " -> " + lastfm[key]);
+//  }
+//}
+//
+//var buildUrl = function(data){
+//  console.log(data);
+//  for (var key in data) {
+//    if (key === "url")
+//      url += data['url'];
+//    else if (data.hasOwnProperty(key)) {
+//      url += '&' + key + '=' + data[key];
+//    }
+//  }
+//}
+//
+//var useIt = function(callback){
+//  callback(lastfm); 
+//}
+//
+//buildUrl(useIt);
+//
+//
+//
+//var myCallback = function(data) {
+//  console.log('got data: '+data);
+//};
+//
+//var usingItNow = function(callback) {
+//  callback('get it?');
+//};
+//
+//usingItNow(myCallback);
+//
+
+
+//buildUrl()
+//console.log(url);
+
+//http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=&api_key=57ee3318536b23ee81d6b27e36997cde&format=json
 
 // logging middleware for debug
 router.use(logger('dev'));

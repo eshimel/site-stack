@@ -59,11 +59,22 @@ $(document).ready(function(){
 });
 
 
-//$('.box').click( function() {
-//  $(this).toggleClass('box--grow', 0);
-//  $(this).css('width', w * .9);
-//  $(this).css('height', w * .9);
-//});
+$('.box').click( function() {
+  var box = $(this).html();
+  $('#slide').animate({
+    left : 0
+  }, 500).html(box);
+  //$(this).css('width', w * .9);
+  //$(this).css('height', h * .9);
+});
+
+$('#slide').click( function() {
+  $(this).stop().animate({
+    left : '2000px'
+  }, 500);
+  //$(this).css('width', w * .9);
+  //$(this).css('height', h * .9);
+});
 
 
 //$('.box__track').hide();
